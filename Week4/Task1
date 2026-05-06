@@ -1,0 +1,65 @@
+Report on YOLOv26 Dataset Configuration (Meta) Files
+Introduction
+
+1. Dataset YAML File
+The dataset YAML file acts as the central configuration file for training.
+
+Information Revealed by the YAML File
+a) Dataset Path
+The path field specifies the root directory of the dataset.
+This helps YOLO locate all dataset components.
+
+b) Training and Validation Directories
+The train and val fields define where training and validation images are stored.
+These folders usually contain image files such as:
+* .jpg
+* .png
+* .jpeg
+
+c) Class Names
+The names section maps class IDs to object labels.
+This tells the model:
+* Class 0 corresponds to car
+* Class 1 corresponds to bus
+The number of entries determines the total number of object classes.
+
+2. Dataset Directory Structure
+A YOLO dataset generally follows this structure:
+dataset/
+│
+├── images/
+│   ├── train/
+│   └── val/
+│
+├── labels/
+│   ├── train/
+│   └── val/
+│
+└── data.yaml
+
+3. Label Files
+Each image has a corresponding text annotation file.
+The .txt file contains object details.
+Example Label File
+0 0.512 0.431 0.245 0.300
+1 0.650 0.500 0.120 0.200
+Meaning of Values
+Format:
+<class_id> <x_center> <y_center> <width> <height>
+Where:
+* class_id → object category number
+* x_center, y_center → center coordinates of object
+* width, height → dimensions of bounding box
+All coordinates are normalized between 0 and 1.
+
+4. Importance of Meta Files
+These metadata/configuration files are important because they:
+* Organize datasets systematically
+* Help YOLO load training and validation data
+* Define object classes correctly
+* Provide annotation information
+* Ensure compatibility during model training
+Without correct configuration files, YOLO training may fail or produce inaccurate predictions.
+
+
+
