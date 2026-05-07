@@ -1,0 +1,7 @@
+path: /Users/hamsika/internship/Week4/dataset
+
+train: images/train
+val: images/val
+
+names:
+  0: person
